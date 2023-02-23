@@ -25,5 +25,5 @@ jobs:
           pip install -r requirements.txt
 
       - name: Test Server
-          run: pytest . # run pytest test
+        run: pytest . # run pytest test
       # - run: flake8 . # run flake8 test
