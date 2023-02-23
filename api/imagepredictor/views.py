@@ -33,18 +33,21 @@ class call_model(APIView):
           
             # img_arr = np.asarray(img)     
             # print(image_file)
-            image = Image.open(image_file)
-            
-            img_arr = np.array(image)
-            img = resize(img_arr,(128,128))
-            img = np.expand_dims(img, axis = 0)
-            output = vgg_model.predict(img).argmax(axis=-1) 
-            # print('img shape', img_arr.shape)
+            if image_file is not None:
+                image = Image.open(image_file)
+                
+                img_arr = np.array(image)
+                img = resize(img_arr,(128,128))
+                img = np.expand_dims(img, axis = 0)
+                output = vgg_model.predict(img).argmax(axis=-1) 
+                # print('img shape', img_arr.shape)
 
-            val = class_dict[output[0]]
-            # print("Printing text in server:",val)
-            response = {'Status': 'Success',
-                'Prediction': val}       
+                val = class_dict[output[0]]
+                # print("Printing text in server:",val)
+                response = {'Status': 'Success',
+                    'Prediction': val}       
+            else: 
+                response = {"Status": 'No image received but server is running successfully...'}
 
             return JsonResponse(response)
 # Create your views here.

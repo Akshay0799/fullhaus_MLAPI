@@ -23,5 +23,5 @@ from imagepredictor.views import call_model
 
 urlpatterns = [
     # path("admin/", admin.site.urls),
-    path('api/v1/', call_model.as_view(), name = 'prediction')
+    path('api/v1/', call_model.as_view(), name = 'call_model_prediction')
 ]
