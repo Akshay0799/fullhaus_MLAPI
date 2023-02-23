@@ -14,7 +14,6 @@ def test_view():
         "image":("chair_test.jpg", open("chair_test.jpg").read(), "image/jpg"),
     }
     body, header = encode_multipart_formdata(fields)
-    request = RequestFactory().get(path, headers={'Content-Type': header}, data=body) # get the path for the list of contacts
+    request = RequestFactory().get(path, headers={'Content-Type': header}, data=body)   # get the path for the list of contacts
     response = call_model(request)
-
     assert response.status_code == 200
