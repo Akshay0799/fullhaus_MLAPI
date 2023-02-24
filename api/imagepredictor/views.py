@@ -9,30 +9,30 @@ import pandas as pd
 from rest_framework.parsers import MultiPartParser, JSONParser
 
 
-
 class call_model(APIView):
     parser_classes = [MultiPartParser]
     def get(self,request):
 
-        
         if request.method == 'GET':            
             # val = request.GET.get('text')
+            response = {"Status": 'No image received but server is running successfully...'}
+
+        return JsonResponse(response)
+    
+    def post(self, request):
+
+        if request.method == 'POST':            
+        # val = request.GET.get('text')
             image_file = request.FILES.get('image')
-        #     vector = PredictorConfig.vectorizer.transform([sound])            
-        #   prediction = soundpredictorConfig.regressor.predict(vector)[0]   
-        #          
+
+                
             class_dict = {0: 'Bed',
                         1: 'Chair',
                         2: 'Sofa',
-                       }
+                        }
             
             vgg_model = ImagepredictorConfig.model
-            # file = request.data.get('picture')
-            
-            #print(upload_data)
-          
-            # img_arr = np.asarray(img)     
-            # print(image_file)
+
             if image_file is not None:
                 image = Image.open(image_file)
                 
@@ -50,4 +50,6 @@ class call_model(APIView):
                 response = {"Status": 'No image received but server is running successfully...'}
 
             return JsonResponse(response)
-# Create your views here.
+
+           
+
