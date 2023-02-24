@@ -3,7 +3,7 @@ This repo contains the code for a Machine Learning model based API of a deep lea
 
 ## Technologies
 ### VGG16
- VGG16 was used for the image classification task. After unfreezing the last layer of the neural netowork, transfer learning was performed on the current dataset and the trained model is saved in the 'models' directory which is located in 'api/imagepredictor'
+ VGG16 was used for the image classification task. After unfreezing the last layer of the neural netowork, transfer learning was performed on the current dataset and the trained model is saved in the 'models' directory which is located in 'api/imagepredictor'. The code for training the VGG16 model is in fulhaus_VGG16.ipynb
 ### Django
   The Wrapper API for the ML model was developed using Django. The server can be run on a port using Django with which the ML model can be accessed by hitting the end point of the Django server. Images can be fed to the server in the multi-part format.
 ### Docker
